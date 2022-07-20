@@ -20,7 +20,7 @@ Single page app with a sign-up form.
 
 ## TODO's / next steps (if more time)
 
-- Make the form fields reusable components. It works for now, but there is more code reuse then necessary
+- Make the form fields reusable components. It works for now, but there is more code duplication then necessary. Next step would be creating new components with `ControlValueAccessor`
 - Additional unit tests (since this is only a demo I did not create 100% code coverage. The tests that are there is to give a general idea of unit test knowledge)
 - Setup Cypress e2e testing
 
