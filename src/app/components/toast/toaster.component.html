@@ -1,0 +1,8 @@
+<div class="toaster fixed top-3 right-3">
+    <div *ngFor="let toast of currentToasts; index as i">
+      <app-toast
+        [toast]="toast"
+        (dispose)="dispose(i)"
+      ></app-toast>
+    </div>
+  </div>

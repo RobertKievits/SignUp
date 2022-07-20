@@ -1,0 +1,114 @@
+<div class="w-full h-full flex items-center justify-center bg-gray-100">
+    <form
+        class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4 w-full lg:w-3/6 lg:max-w-screen-sm"
+        [formGroup]="signUpForm"
+        (ngSubmit)="onSubmit()">
+        
+        <div class="mb-4">
+            <label 
+                class="block text-gray-700 text-sm font-bold mb-2"
+                for="firstName">
+                First name
+            </label>
+            <input
+                class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                [class.border-red-500] = "hasError('firstName')"
+                id="firstName"
+                type="text"
+                placeholder="First name"
+                formControlName="firstName">
+            <p 
+                *ngIf="hasError('firstName')"
+                class="text-red-500 text-xs italic mt-2">
+                Please fill in your first name
+            </p>
+        </div>
+
+        <div class="mb-4">
+            <label 
+                class="block text-gray-700 text-sm font-bold mb-2"
+                for="lastName">
+                Last name
+            </label>
+            <input
+                class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                [class.border-red-500] = "hasError('lastName')"
+                id="lastName"
+                type="text"
+                placeholder="Last name"
+                formControlName="lastName">
+            <p 
+                *ngIf="hasError('lastName')"
+                class="text-red-500 text-xs italic mt-2">
+                Please fill in your last name
+            </p>
+        </div>
+
+        <div class="mb-4">
+            <label 
+                class="block text-gray-700 text-sm font-bold mb-2"
+                [class.border-red-500] = "hasError('email')"
+                for="email">
+                E-mail
+            </label>
+            <input
+                class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                id="email"
+                type="email"
+                placeholder="Email address"
+                formControlName="email">
+            <p 
+                *ngIf="hasError('email')"
+                class="text-red-500 text-xs italic mt-2">
+                Please fill a valid e-mail address
+            </p>
+        </div>
+
+        <div class="mb-6">
+            <label
+                class="block text-gray-700 text-sm font-bold mb-2"
+                for="password">
+                Password
+            </label>
+            <input 
+                class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                [class.border-red-500] = "hasError('password')"
+                id="password"
+                type="password"
+                placeholder="******************"
+                autocomplete="on"
+                formControlName="password">
+            <ul
+                *ngIf="(passwordControl.errors || signUpForm.errors) && passwordControl.touched"
+                class="text-red-500 text-xs italic mt-2">
+                <li 
+                    *ngIf="passwordControl.errors?.['required']"
+                    class="mb-1">
+                    Please choose a password.
+                </li>
+                <li 
+                    *ngIf="passwordControl.errors?.['minlength']"
+                    class="mb-1">
+                    Please fill in at least 8 characters.
+                </li>
+                <li 
+                    *ngIf="passwordControl.errors?.['mustContainLowercaseAndUppercase']"
+                    class="mb-1">
+                    Password must contain lowercase and uppercase letters
+                </li>
+                <li 
+                    *ngIf="signUpForm.errors?.['passwordDoesNotContainFirstNameOrLastName']"
+                    class="mb-1">
+                    Password can not contain first or last name
+                </li>
+            </ul>
+        </div>
+        <div class="flex items-center justify-between">
+            <button
+                class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline w-full md:w-auto"
+                type="submit">
+                Sign Up
+            </button>
+        </div>
+    </form>
+  </div>
