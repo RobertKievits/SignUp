@@ -5,7 +5,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { ToastModule } from '@components/toast';
 
 import { SignUpFormComponent } from './sign-up-form.component';
-import { SignUpService } from './services/sign-up.service';
+import { SignUpService } from './services';
 
 @NgModule({
   declarations: [SignUpFormComponent],

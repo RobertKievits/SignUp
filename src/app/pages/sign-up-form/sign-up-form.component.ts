@@ -7,7 +7,7 @@ import {
   passwordDoesNotContainFirstNameOrLastName,
   validEmail
 } from '@core/validators';
-import { SignUpService } from './services/sign-up.service';
+import { SignUpService } from './services';
 
 @Component({
   selector: 'app-sign-up-form',
